@@ -7,13 +7,15 @@ import 'hammerjs';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
+import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu.component';
 
 export const firebaseConfig = {
-  apiKey: 'apiKey',
-  authDomain: 'authDomain',
-  databaseURL: 'databaseURL',
-  storageBucket: 'storageBucket'
+  apiKey: environment.firebase.apiKey,
+  authDomain: environment.firebase.authDomain,
+  databaseURL: environment.firebase.databaseURL,
+  storageBucket: environment.firebase.storageBucket
 };
 
 const firebaseAuthConfig = {
@@ -23,7 +25,8 @@ const firebaseAuthConfig = {
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

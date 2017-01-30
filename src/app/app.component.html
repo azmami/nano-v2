@@ -1,10 +1,5 @@
 <div class="container">
-    <md-toolbar>
-        <span>NANO v2 {{(angularFire.auth | async)?.uid}} </span>
-        <span class="example-fill-remaining-space"></span>
-        <button *ngIf="!(angularFire.auth | async)" color="primary" md-raised-button (click)="login()">Login</button>
-        <button *ngIf="angularFire.auth | async" color="primary" md-raised-button (click)="logout()">Logout</button>
-    </md-toolbar>
+    <menu></menu>
     <div class="map-container">
         <div id="map"></div>
     </div>
