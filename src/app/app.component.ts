@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { GoogleMapsAPILoader } from './google-maps-api-loader';
 import { environment } from '../environments/environment';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { environment } from '../environments/environment';
 })
 export class AppComponent {
   private apiLoader: any;
-  constructor() {
+  constructor(private angularFire: AngularFire) {
     this.apiLoader = new GoogleMapsAPILoader(environment.apiKey, environment.apiVer);
     this.apiLoader.loadAPI().then((google) => {
       let map = new google.maps.Map(document.getElementById('map'),
@@ -18,6 +19,14 @@ export class AppComponent {
         zoom: 10
       })
     });
-
   }
+
+  login() {
+    this.angularFire.auth.login();
+  }
+
+  logout() {
+    this.angularFire.auth.logout();
+  }
+
 }
