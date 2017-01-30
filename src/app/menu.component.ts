@@ -2,14 +2,14 @@ import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
-    selector: 'menu',
+    selector: 'main-menu',
     template: `
         <md-toolbar>
-            <span>NANO</span>
+            <span id="menu-title">NANO</span>
             <span class="fill-remaining-space"></span>    
             <span class="display-name">{{(angularFire.auth | async)?.google.displayName}}</span>
-            <button *ngIf="!(angularFire.auth | async)" color="primary" md-raised-button (click)="login()">Login</button>
-            <button *ngIf="angularFire.auth | async" color="primary" md-raised-button (click)="logout()">Logout</button>
+            <button id="loginBtn" *ngIf="!(angularFire.auth | async)" color="primary" md-raised-button (click)="login()">Login</button>
+            <button id="logoutBtn" *ngIf="angularFire.auth | async" color="primary" md-raised-button (click)="logout()">Logout</button>
         </md-toolbar>
     `,
     styles: [`
