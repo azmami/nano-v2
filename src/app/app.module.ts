@@ -10,6 +10,7 @@ import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu.component';
+import { MapComponent } from './map.component';
 
 export const firebaseConfig = {
   apiKey: environment.firebase.apiKey,
@@ -26,7 +27,8 @@ const firebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    MapComponent
   ],
   imports: [
     BrowserModule,
