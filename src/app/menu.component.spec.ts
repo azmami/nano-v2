@@ -16,14 +16,17 @@ let angularFire: AngularFire;
 let componentAngularFire: AngularFire;
 let angularFireStub: any = {
   auth: {
-    subscribe: () => {
-      return 'subscribe';
+    subscribe: (auth) => {
+      return {
+        unsubscribe: () => {
+          // do nothing
+        }
+      };
     },
     unsubscribe: () => {
       return 'unsubscribe';
     },
     login: () => {
-      console.log("logingin....");
       login();
     }
   }
@@ -59,17 +62,21 @@ describe('Menu Component', () => {
     
   });
 
+  // this fails..
+  it('should display the name of the logged user at the right top corder', () => {
+    let compiled = fixture.debugElement.query(By.css(".display-name"));
+    console.log(angularFireStub);
+    fixture.detectChanges();
+    console.log(angularFireStub.auth === true);
+    compiled = fixture.debugElement.query(By.css(".display-name"));
+    expect(compiled.nativeElement.textContent).toBe('Meme-chan');
+  });
+
   it('should render the app title and button at menu bar', () => {
     fixture.detectChanges();
     let compiled = fixture.debugElement.nativeElement;
     expect(compiled.querySelector('md-toolbar').querySelector('span').textContent).toContain('NANO');
     expect(compiled.querySelector('md-toolbar').querySelector('button').textContent).toContain('Login');
-  });
-
-  // TODO: fix this later: TypeError: subscription.unsubscribe is not a function 
-  it('should display the name of the logged user at the right top corder', () => {
-    menuComponent.login();
-    fixture.detectChanges(); 
   });
 
 });
