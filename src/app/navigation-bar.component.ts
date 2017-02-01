@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 @Component({
-    selector: 'main-menu',
+    selector: 'navigation-bar',
     template: `
         <md-toolbar>
             <span id="menu-title">NANO</span>

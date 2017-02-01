@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'left-pane',
-    template: `<div id="left-pane">
+    selector: 'main-menu',
+    template: `
+    <div id="left-pane">
         {{title}}
     </div>`,
     styles: [`
         #left-pane {
             width: 100%;
             height: 100%;
-            padding: 10px;
+            margin: 0px;
+            padding: 0px;
         }
     `]
 })
