@@ -3,14 +3,13 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { MaterialModule } from '@angular/material';
-import 'hammerjs';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu.component';
+import { NavigationBarComponent } from './navigation-bar.component';
 import { MapComponent } from './map.component';
+import { MenuComponent } from './menu.component';
 
 export const firebaseConfig = {
   apiKey: environment.firebase.apiKey,
@@ -27,8 +26,9 @@ const firebaseAuthConfig = {
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent,
-    MapComponent
+    NavigationBarComponent,
+    MapComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,

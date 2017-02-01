@@ -1,19 +1,38 @@
-.container {
-    margin: 0;
-    width: 100%;
-    min-height: 100%;
-    height: 100%;
-    flex-direction: column;
+.flex-container-column {
     display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
-.map-container {
-   height: 100%;
-   width: 100%;
-   position: relative;
-   overflow: auto;
+.flex-container-row {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+left-pane {
+    order: 1;
+    margin: 0px;
+    height: 100%;
+    width: 30%;
+}
+
+google-map {
+    order: 2;
+    margin: 0px;
+    padding: 0px;
+    height: 100%;
+    width: 100%;
 }
 
 main-menu {
     margin: 0px;
     padding: 0px;
+    width: 100%;
+    height: auto;
 }

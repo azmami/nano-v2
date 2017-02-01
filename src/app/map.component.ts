@@ -7,13 +7,11 @@ import { environment } from '../environments/environment';
     template: `<div id="map"></div>`,
     styles: [`
     #map {
-        width: 100%;
+        margin: 0px;
+        padding: 0px;
         height: 100%;
-        position: absolute;
-        top: 0px;
-        left: 0px;
-    }
-    `]
+        width: 100%;
+    }`]
 })
 export class MapComponent {
     private isLoadingMapNow: boolean = true;

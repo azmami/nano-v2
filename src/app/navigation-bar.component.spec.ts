@@ -2,14 +2,14 @@ import { ComponentFixture, TestBed, async } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { MenuComponent } from './menu.component';
+import { NavigationBarComponent } from './navigation-bar.component';
 import 'hammerjs';
 import { MaterialModule } from '@angular/material';
 import { AngularFireModule, AuthProviders, AuthMethods } from 'angularfire2';
 import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
-let menuComponent: MenuComponent;
-let fixture: ComponentFixture<MenuComponent>;
+let menuComponent: NavigationBarComponent;
+let fixture: ComponentFixture<NavigationBarComponent>;
 let de: DebugElement;
 let el: HTMLElement;
 let angularFire: AngularFire;
