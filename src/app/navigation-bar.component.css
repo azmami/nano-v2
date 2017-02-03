@@ -1,0 +1,9 @@
+.display-name {
+    margin: 0.3em 0.5em 0.3em 0.3em;
+    padding: 0.3em;
+    font-size: 0.6em;
+}
+
+.fill-remaining-space {
+    flex: 1 1 auto;
+}
