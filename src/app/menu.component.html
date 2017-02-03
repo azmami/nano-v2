@@ -1,0 +1,14 @@
+<div id="left-pane">
+    <div class="main-content">
+        <div *ngIf="!(angularFire.auth | async)">
+            <h5>Please login first.</h5>
+        </div>
+        <div *ngIf="angularFire.auth | async">
+            <div *ngFor="let asset of assets | async">
+                <md-card>
+                    <md-card-title>{{asset.name}}</md-card-title>
+                </md-card>
+            </div>
+        </div>
+    </div>
+</div>
