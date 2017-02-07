@@ -42,7 +42,7 @@ describe('Menu Component', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [
-        MenuComponent
+        NavigationBarComponent
       ],
       imports: [
         MaterialModule.forRoot()
@@ -52,7 +52,7 @@ describe('Menu Component', () => {
       ]
     });
 
-    fixture = TestBed.createComponent(MenuComponent);
+    fixture = TestBed.createComponent(NavigationBarComponent);
     menuComponent = fixture.componentInstance;
 
     angularFire = fixture.debugElement.injector.get(AngularFire);
