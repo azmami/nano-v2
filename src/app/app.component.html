@@ -1,10 +1,13 @@
 <div class="flex-container" fxLayout="column" fxLayoutAlign="start stretch">
     
-    <navigation-bar></navigation-bar>
+    <navigation-bar 
+    (onManageAssetsMenuClicked)="showManageAssetsMenu($event)"
+    (onRegisterAssetMenuClicked)="showAssetRegistrationMenu($event)"
+    (onLoggedOut)="logout($event)"></navigation-bar>
     
     <div class="flex-container" fxLayout="row" fxLayout.xs="column" fxFlex="100%" fxFlexFill>
         <div [fxHide]="menuHidden" fxFlex="30%">
-            <main-menu></main-menu>
+            <menu-container [menuItem]="menuItem"></menu-container>
         </div>
         <div [fxFlex]="mapSize">
             <google-map></google-map>

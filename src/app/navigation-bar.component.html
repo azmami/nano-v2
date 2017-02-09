@@ -3,11 +3,15 @@
         <md-icon>more_vert</md-icon>
         </button>
         <md-menu #menu="mdMenu">
-            <button md-menu-item [disabled]="!(angularFire.auth | async)">
+            <button md-menu-item 
+            [disabled]="!(angularFire.auth | async)" 
+            (click)="showManageAssetsMenu()">
                 <md-icon>add_circle</md-icon>
                 <span>Add New Asset</span>
             </button>
-            <button md-menu-item [disabled]="!(angularFire.auth | async)">
+            <button md-menu-item
+            [disabled]="!(angularFire.auth | async)"
+            (click)="showAssetRegistrationMenu()">
                 <md-icon>people</md-icon>
                 <span>Manage Your Assets</span>
             </button>

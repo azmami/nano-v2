@@ -1,4 +1,4 @@
-<div id="left-pane">
+<!-- <div id="left-pane">
     <div class="main-content">
         <div *ngIf="!(angularFire.auth | async)">
             <h5>Please login first.</h5>
@@ -10,5 +10,11 @@
                 </md-card>
             </div>
         </div>
+    </div>
+</div>
+-->
+<div id="menu-container">
+    <div class="main-content">
+        <template menu-host></template>
     </div>
 </div>

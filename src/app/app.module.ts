@@ -11,7 +11,13 @@ import { environment } from '../environments/environment';
 import { AppComponent } from './app.component';
 import { NavigationBarComponent } from './navigation-bar.component';
 import { MapComponent } from './map.component';
-import { MenuComponent } from './menu.component';
+import { MenuContainerComponent } from './menu-container.component';
+import { AssetRegistrationRequestComponent } from './asset-registration-request.component';
+import { ManageAssetsComponent } from './manage-assets.component';
+import { LoginFirstComponent } from './login-first.component';
+
+import { MenuDirective } from './menu.directive';
+import { MenuService } from './menu.service';
 
 export const firebaseConfig = {
   apiKey: environment.firebase.apiKey,
@@ -30,7 +36,11 @@ const firebaseAuthConfig = {
     AppComponent,
     NavigationBarComponent,
     MapComponent,
-    MenuComponent
+    MenuContainerComponent,
+    AssetRegistrationRequestComponent,
+    ManageAssetsComponent,
+    LoginFirstComponent,
+    MenuDirective
   ],
   imports: [
     BrowserModule,
@@ -40,7 +50,8 @@ const firebaseAuthConfig = {
     FlexLayoutModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
-  providers: [],
+  entryComponents: [LoginFirstComponent, ManageAssetsComponent, AssetRegistrationRequestComponent],
+  providers: [MenuService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
