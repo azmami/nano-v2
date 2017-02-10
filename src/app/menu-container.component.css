@@ -3,7 +3,8 @@
     height: 100%;
     margin: 0px;
     padding: 0px;
-    background-color: #f9f9f9;
+    background-color: #212121;
+    overflow: scroll;
 }
 .main-content {
     margin: 0px;

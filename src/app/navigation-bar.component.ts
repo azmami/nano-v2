@@ -12,6 +12,7 @@ export class NavigationBarComponent {
     private userSubscription: any;
     @Output() onManageAssetsMenuClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() onRegisterAssetMenuClicked: EventEmitter<any> = new EventEmitter<any>();
+    @Output() onManageProfileMenuClicked: EventEmitter<any> = new EventEmitter<any>();
     @Output() onLoggedOut: EventEmitter<any> = new EventEmitter<any>();
     constructor(private angularFire: AngularFire) {
     }
@@ -21,6 +22,9 @@ export class NavigationBarComponent {
     }
     showAssetRegistrationMenu() {
         this.onRegisterAssetMenuClicked.emit({ yo: true });
+    }
+    showManageProfileMenu() {
+        this.onManageProfileMenuClicked.emit({ yo: true });
     }
 
     login() {
@@ -36,10 +40,12 @@ export class NavigationBarComponent {
                         userId: result.uid,
                         displayName: result.auth.displayName
                     }).then(done => {
+                        /*
                         let newUserName = this.angularFire.database.object(`/usernames/${result.uid}`, { preserveSnapshot: true });
                             newUserName.update({
                             uid: result.uid
                         });
+                        */
                     });
                }
            })

@@ -1,1 +1,6 @@
-<h1>Manage Assets</h1>
+<div class="manage-assets">
+    <h3>Manage Your Assets</h3>
+    <md-card *ngFor="let asset of assets | async">
+        <md-card-title>{{asset.name}}</md-card-title>
+    </md-card>
+</div>

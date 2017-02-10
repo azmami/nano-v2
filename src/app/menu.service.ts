@@ -3,6 +3,7 @@ import { MenuItem } from './menu-item';
 import { ManageAssetsComponent } from './manage-assets.component';
 import { AssetRegistrationRequestComponent } from './asset-registration-request.component';
 import { LoginFirstComponent } from './login-first.component';
+import { ManageProfileComponent } from './manage-profile.component';
 
 @Injectable()
 export class MenuService {
@@ -20,5 +21,9 @@ export class MenuService {
 
     getLoginFirstMenu() {
         return new MenuItem(LoginFirstComponent, {});
+    }
+
+    getManageProfileMenu() {
+        return new MenuItem(ManageProfileComponent, {});
     }
 }

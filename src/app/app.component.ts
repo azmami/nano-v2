@@ -34,4 +34,10 @@ export class AppComponent {
     this.mapSize = '70%';
     this.menuItem = this.menuService.getAssetRegistrationMenu();
   }
+
+  showManageProfileMenu($event) {
+    this.menuHidden = false;
+    this.mapSize = '70%';
+    this.menuItem = this.menuService.getManageProfileMenu();
+  }
 }

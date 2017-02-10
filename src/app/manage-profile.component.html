@@ -1,0 +1,10 @@
+<h3>Manage Your Profile</h3>
+<form>
+    <md-input-container>
+        <input [(ngModel)]="userName" md-input placeholder="Your User Name" name="user-name">
+    </md-input-container>
+    <md-input-container>
+        <input [(ngModel)]="userId" md-input placeholder="Your User ID" name="user-id">
+    </md-input-container>
+     <button md-raised-button color="accent" (click)="saveUserProfile()">Save</button>
+</form>

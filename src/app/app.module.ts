@@ -15,6 +15,7 @@ import { MenuContainerComponent } from './menu-container.component';
 import { AssetRegistrationRequestComponent } from './asset-registration-request.component';
 import { ManageAssetsComponent } from './manage-assets.component';
 import { LoginFirstComponent } from './login-first.component';
+import { ManageProfileComponent } from './manage-profile.component';
 
 import { MenuDirective } from './menu.directive';
 import { MenuService } from './menu.service';
@@ -40,6 +41,7 @@ const firebaseAuthConfig = {
     AssetRegistrationRequestComponent,
     ManageAssetsComponent,
     LoginFirstComponent,
+    ManageProfileComponent,
     MenuDirective
   ],
   imports: [
@@ -50,7 +52,12 @@ const firebaseAuthConfig = {
     FlexLayoutModule.forRoot(),
     AngularFireModule.initializeApp(firebaseConfig, firebaseAuthConfig)
   ],
-  entryComponents: [LoginFirstComponent, ManageAssetsComponent, AssetRegistrationRequestComponent],
+  entryComponents: [
+    LoginFirstComponent,
+    ManageAssetsComponent,
+    AssetRegistrationRequestComponent,
+    ManageProfileComponent
+  ],
   providers: [MenuService],
   bootstrap: [AppComponent]
 })
