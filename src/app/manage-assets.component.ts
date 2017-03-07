@@ -12,9 +12,8 @@ export class ManageAssetsComponent implements MenuComponent {
     private assetsSubscription: any;
     constructor(private angularFire: AngularFire) {
         this.angularFire.auth.subscribe(update => {
-            console.log(update);
             if(update) {
-                this.assets = this.angularFire.database.list(`/assets/${update.uid}`);
+                this.assets = this.angularFire.database.list(`/users/${update.uid}/assets`);
             } else {
                 if(this.assetsSubscription) {
                     this.assetsSubscription.unsubscribe();

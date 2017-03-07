@@ -35,10 +35,9 @@ export class NavigationBarComponent {
                     // user already registered, update only display name
                     
                } else {
-                    // non registered.
                     user.update({
-                        userId: result.uid,
-                        displayName: result.auth.displayName
+                        user_id: result.uid,
+                        display_name: result.auth.displayName
                     }).then(done => {
                         /*
                         let newUserName = this.angularFire.database.object(`/usernames/${result.uid}`, { preserveSnapshot: true });
