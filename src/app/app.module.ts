@@ -19,6 +19,7 @@ import { ManageProfileComponent } from './manage-profile.component';
 
 import { MenuDirective } from './menu.directive';
 import { MenuService } from './menu.service';
+import { LocationService } from './location.service';
 
 export const firebaseConfig = {
   apiKey: environment.firebase.apiKey,
@@ -58,7 +59,7 @@ const firebaseAuthConfig = {
     AssetRegistrationRequestComponent,
     ManageProfileComponent
   ],
-  providers: [MenuService],
+  providers: [MenuService, LocationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

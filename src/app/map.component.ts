@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { GoogleMapsAPILoader } from './google-maps-api-loader';
+import { LocationService } from './location.service';
 import { environment } from '../environments/environment';
 
 @Component({
@@ -17,29 +18,30 @@ import { environment } from '../environments/environment';
 export class MapComponent {
     private isLoadingMapNow: boolean = true;
     private apiLoader: GoogleMapsAPILoader;
-    constructor(private angularFire: AngularFire) {
+    private subscription: any; 
+
+    constructor(private angularFire: AngularFire, private locationService: LocationService) {
         this.apiLoader = new GoogleMapsAPILoader(environment.googleMapsAPI.apiKey, environment.googleMapsAPI.apiVer);
         this.apiLoader.loadAPI().then((google) => {
-            let map = new google.maps.Map(document.getElementById('map'),
-            {
-                center: { lat: 35.6894875, lng: 139.69 },
-                zoom: 10
-            });
-            this.angularFire.auth.subscribe(update => {
-                if(update) {
-                    this.angularFire.database.list(`/locations/${update.uid}`).subscribe(locations => {
-                        console.log(locations);
-                        locations.forEach((val, index) => {
-                            let location = { lat: val.lat, lng: val.long };
-                            let marker = new google.maps.Marker({
-                                position: location,
-                                map: map
-                            });
-                        });
+            this.locationService.initializeService(google);
+
+            this.angularFire.auth.subscribe(auth => {
+                if(auth) {
+                    this.subscription = this.angularFire.database.list(`/locations/${auth.uid}`, {
+                        query: {
+                            orderByChild: 'addedAt',
+                            limitToLast: 10
+                        }
+                    }).subscribe(updatedLocations => {
+                        this.locationService.updateMarkers(updatedLocations);
+                        this.locationService.updateTrackingPath(updatedLocations);
                     });
+                } else {
+                    if(this.subscription) {
+                        this.subscription.unsubscribe();
+                    }
                 }
             });
-            
         });
     }
 }
